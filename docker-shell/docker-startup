@@ -1,0 +1,28 @@
+#!/bin/bash
+
+set -e
+
+# Start Zookeeper
+echo "Starting Zookeeper..."
+docker-compose -f /home/daehong/kafka/zookeeper-docker-compose.yml up -d
+
+# Wait for Zookeeper to be fully up (adjust sleep time if necessary)
+sleep 10
+
+# Start Kafka
+echo "Starting Kafka..."
+docker-compose -f /home/daehong/kafka/kafka-docker-compose.yml up -d
+
+# Wait for Kafka to be fully up
+sleep 10
+
+# Start MinIO
+echo "Starting MinIO..."
+docker-compose -f /home/daehong/minio/minio-docker-compose.yml up -d
+
+# Start Grafana
+echo "Starting Grafana..."
+docker-compose -f /home/daehong/grafana/grafana-docker-compose.yml up -d
+
+echo "All services have been started successfully."
+

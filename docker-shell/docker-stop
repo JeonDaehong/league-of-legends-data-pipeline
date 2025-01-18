@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e
+
+# Stop Grafana
+echo "Stopping Grafana..."
+docker-compose -f /home/daehong/grafana/grafana-docker-compose.yml down
+
+# Stop MinIO
+echo "Stopping MinIO..."
+docker-compose -f /home/daehong/minio/minio-docker-compose.yml down
+
+# Stop Kafka
+echo "Stopping Kafka..."
+docker-compose -f /home/daehong/kafka/kafka-docker-compose.yml down
+
+# Stop Zookeeper
+echo "Stopping Zookeeper..."
+docker-compose -f /home/daehong/kafka/zookeeper-docker-compose.yml down
+
+echo "All services have been stopped successfully."
+
