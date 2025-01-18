@@ -1,0 +1,1 @@
+spark-shell --total-executor-cores 4 --executor-memory 8g
