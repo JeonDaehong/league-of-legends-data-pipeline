@@ -115,4 +115,3 @@ object KafkaSparkApp {
     query.awaitTermination()
   }
 }
-
